@@ -13,10 +13,8 @@ const query = async (prompt : string, chatId : string, model : string) => {
         top_p : 1,
         frequency_penalty : 0,
         presence_penalty : 0
-    }).then(
-        res => res.data.choices[0].text
-    )
-    .catch(err=>console.log(`ChatGPT cannot find it.Error : ${err}`));
+    }).then(res => res.data.choices[0].text)
+    .catch(err=>console.log(`ChatGPT cannot find it.Error : ${err.message}`));
     return res;
 }
 

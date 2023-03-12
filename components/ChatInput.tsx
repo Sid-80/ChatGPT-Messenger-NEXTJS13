@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { Session } from "inspector";
@@ -14,9 +14,10 @@ function ChatInput({chatId}:Props) {
     const [prompt, setPrompt] = useState("");
     const {data:session} = useSession();
     // useSWR to get model
-    const model = "davinci";
+    const model = "text-davinci-003";
 
     const sendMsg = async (e:FormEvent<HTMLFormElement>) => {
+        console.log(session);
         e.preventDefault();
         if(!prompt) return;
         const input = prompt.trim();
@@ -30,33 +31,33 @@ function ChatInput({chatId}:Props) {
                 name:session?.user?.name!,
             }
         }
+
         await addDoc(collection(db, 'users', session?.user?.email!, 'chats', chatId, 'messages'),
         message)
 
-        // Toast noti loading
         const notification = toast.loading('ChatGPT is thinking !!')
 
         await fetch('/api/askQuestion', {
-            method:'POST',
+            method:"POST",
             headers : {
-                'Content-Type' : 'appliation/json'
+                "Content-Type": "application/json",
             },
             body : JSON.stringify({
                 prompt : input,
                 chatId,
                 model,
                 session
-            })
+            }),
         }).then(() =>{
             toast.success("ChatGPT responded !!",{
                 id:notification
             })
-        })
+        });
     };
 
   return(
     <div className="bg-gray-700/50 text-gray-400 rounded-lg text-sm">
-        <form onSubmit={e => sendMsg} className="p-5 space-x-5 flex">
+        <form onSubmit={e => sendMsg(e)} className="p-5 space-x-5 flex">
             <input disabled={!session} className="bg-transparent focus:outline-none flex-1 disabled:cursor-not-allowed disabled:text-gray-300" value={prompt} onChange={e => setPrompt(e.target.value)} type="text" placeholder="Type your message here..."/>
             <button disabled={!prompt || !session} type="submit" className="bg-[#11a37f] hover:opaity-50 text-white font-bold px-4 py-2 rounded cursor-pointer disabled:bg-gray-300 disabled:cursor-not-allowed"> 
                 <PaperAirplaneIcon className="h-4 w-4 -rotate-45" />
