@@ -15,6 +15,9 @@ function Login() {
         <button onClick={()=>signIn('google')} className="text-white font-bold text-3xl animate-pulse">
             Sign In To Use ChatGPT
         </button>
+        <div>
+          <p className="animate-pulse px-10">Made with ❤️ by Siddharth</p>
+        </div>
     </div>
   )
 }

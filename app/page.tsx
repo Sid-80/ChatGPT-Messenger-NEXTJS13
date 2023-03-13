@@ -12,7 +12,7 @@ function HomePage() {
                 <div className="space-y-2">
                     <p className="infoText">Explain Something to me</p>
                     <p className="infoText">Difference between dog and cat</p>
-                    <p className="infoText">Explain Something to me</p>
+                    <p className="infoText">Explain life</p>
                 </div>
             </div>
             <div>
@@ -21,9 +21,9 @@ function HomePage() {
                     <h2>Capabilities</h2>
                 </div>
                 <div className="space-y-2">
-                    <p className="infoText">Change the ChatGPT Model to use</p>
-                    <p className="infoText">Messages are stored in Firebase's Firestore</p>
-                    <p className="infoText">Hot Toast notification when ChatGPT is thinking !</p>
+                    <p className="infoText">ChatGPT Model to use</p>
+                    <p className="infoText">Messages stored in Firestore</p>
+                    <p className="infoText">Hot Toast notification !</p>
                 </div>
             </div>
             <div>
@@ -32,11 +32,15 @@ function HomePage() {
                     <h2>Limitations</h2>
                 </div>
                 <div className="space-y-2">
-                    <p className="infoText">May occasionally generate incorrect information</p>
-                    <p className="infoText">May occasionally produce harmful instructions or biased content</p>
+                    <p className="infoText">May incorrect information</p>
+                    <p className="infoText">May produce harmful instructions</p>
                     <p className="infoText">Limited Knowledge of world and events after 2021</p>
                 </div>
             </div>
+            
+        </div>
+        <div className='py-10'>
+            <p className="animate-pulse">Made with ❤️ by Siddharth</p>
         </div>
     </div>
   )
