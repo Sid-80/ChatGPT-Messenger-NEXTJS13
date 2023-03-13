@@ -4,6 +4,7 @@ LIVE DEMO - https://chatgpt-messenger-sid-80.vercel.app
 
 I HAVE LEARNED : 
 👉 How to use the ChatGPT API to create your own AI chat bot!
+
 👉 How to use different ChatGPT models when prompting the OpenAI API's
 👉 Create API endpoints in your Next.js app to securely manage requests
 👉 Connect Firebase v9 to your Next.js 13 application to create & store REALTIME chats with chatGPT
