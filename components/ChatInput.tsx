@@ -21,7 +21,6 @@ function ChatInput({chatId}:Props) {
     });
 
     const sendMsg = async (e:FormEvent<HTMLFormElement>) => {
-        console.log(session);
         e.preventDefault();
         if(!prompt) return;
         const input = prompt.trim();
@@ -49,14 +48,13 @@ function ChatInput({chatId}:Props) {
             body : JSON.stringify({
                 prompt : input,
                 chatId,
-                model,
                 session
             }),
         }).then(() =>{
             toast.success("ChatGPT responded !!",{
                 id:notification
             })
-        });
+        }).catch((err)=>console.log(err));
     };
 
   return(
@@ -67,9 +65,9 @@ function ChatInput({chatId}:Props) {
                 <PaperAirplaneIcon className="h-4 w-4 -rotate-45" />
             </button>
         </form>
-        <div className="md:hidden ">
+        {/* <div className="md:hidden ">
             <ModelSelection />
-        </div>
+        </div> */}
     </div>
   )
 }

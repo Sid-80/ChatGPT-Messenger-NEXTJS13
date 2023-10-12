@@ -18,7 +18,7 @@ export default async function handler(
 ) {
     const models = await openai.listModels().then((res)=>res.data.data);
 
-    const modelOptions = models.map((model)=>({
+    const modelOptions = models.map((model:any)=>({
         value:model.id,
         label:model.id,
     }));

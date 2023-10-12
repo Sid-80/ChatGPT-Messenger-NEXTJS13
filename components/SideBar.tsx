@@ -17,9 +17,9 @@ function SideBar() {
         <div className="flex-1">
             <div>
                 <NewChat />
-                <div className="hidden sm:inline">
+                {/* <div className="hidden sm:inline">
                     <ModelSelection />
-                </div>
+                </div> */}
                 <div className="flex flex-col space-y-2 my-2">
                     {
                         loading && (
